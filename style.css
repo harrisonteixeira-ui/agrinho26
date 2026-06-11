@@ -1,0 +1,208 @@
+/*/* --- ESTILOS GERAIS (Inspirado em Minecraft) --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', monospace;
+}
+
+body {
+    background-color: #3a2f28;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    image-rendering: pixelated;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    border: 4px solid #4a3b32;
+    background: #2e221a;
+    padding: 15px;
+    box-shadow: 0 6px 0 #1b130e;
+    width: 100%;
+    max-width: 900px;
+}
+
+h1 {
+    color: #5cbf3d;
+    font-size: 22px;
+    text-shadow: 3px 3px 0px #1e4612;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 10px;
+    color: #dfd59d;
+    line-height: 1.5;
+}
+
+/* --- PAINEL DE STATUS --- */
+.status-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    background: #4a3b32;
+    padding: 15px;
+    border: 4px solid #6b5447;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 0 #2e221a;
+}
+
+.stat-box {
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.bar-container {
+    width: 200px;
+    height: 20px;
+    background: #222;
+    border: 2px solid #000;
+    position: relative;
+}
+
+.bar {
+    height: 100%;
+    width: 50%;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+#sustentabilidade-bar { background-color: #5cbf3d; }
+#producao-bar { background-color: #dfd59d; }
+
+/* --- ÁREA PRINCIPAL DO JOGO --- */
+.game-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    flex-wrap: wrap;
+}
+
+/* Hotbar / Inventário de Ações */
+.hotbar {
+    flex: 1;
+    min-width: 200px;
+    background: #2e221a;
+    border: 4px solid #4a3b32;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hotbar h3 {
+    font-size: 12px;
+    color: #5cbf3d;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.btn-action {
+    background: #7ca849;
+    border: 3px solid #b3df7e;
+    border-bottom-color: #496627;
+    border-right-color: #496627;
+    color: white;
+    padding: 12px;
+    font-size: 10px;
+    cursor: pointer;
+    text-align: left;
+    box-shadow: 0 4px 0 #000;
+}
+
+.btn-action:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0 #000;
+}
+
+.btn-action.pollute {
+    background: #bc463a;
+    border-color: #e6786e;
+    border-bottom-color: #6e241c;
+    border-right-color: #6e241c;
+}
+
+.controles-ajuda {
+    margin-top: 15px;
+    font-size: 8px;
+    color: #dfd59d;
+    line-height: 1.4;
+    border-top: 2px dotted #4a3b32;
+    padding-top: 10px;
+}
+
+/* Tabuleiro do Jogo */
+.grid-mundo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 4px;
+    width: 450px;
+    height: 450px;
+    background: #1b130e;
+    border: 6px solid #4a3b32;
+    padding: 4px;
+}
+
+.bloco {
+    background-color: #5cbf3d;
+    border: 2px solid rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    position: relative;
+    transition: background 0.2s;
+    user-select: none;
+}
+
+/* Elemento do Boneco/Jogador */
+.boneco {
+    font-size: 28px;
+    position: absolute;
+    z-index: 10;
+    animation: bounceJogador 0.4s infinite alternate;
+}
+
+@keyframes bounceJogador {
+    from { transform: translateY(0); }
+    to { transform: translateY(-4px); }
+}
+
+/* Tipos de blocos via classes */
+.bloco.grama { background-color: #5cbf3d; border-top: 4px solid #7cd659; }
+.bloco.arvore { background-color: #2e6e26; border-top: 4px solid #3d8f34; }
+.bloco.lavoura { background-color: #85542b; border-top: 4px solid #a36b3b; }
+.bloco.pastagem { background-color: #9cb84d; border-top: 4px solid #b7d65c; }
+.bloco.degradado { background-color: #524741; border-top: 4px solid #695c55; }
+
+/* --- FEEDBACK E DIÁLOGOS --- */
+.painel-mensagem {
+    width: 100%;
+    max-width: 900px;
+    background: #111;
+    border: 4px solid #4a3b32;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 10px;
+    color: #00ff00;
+    line-height: 1.6;
+    min-height: 60px;
+    box-shadow: inset 0 0 10px #000;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 8px;
+    color: #857164;
+    text-align: center;
+}
